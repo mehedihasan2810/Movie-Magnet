@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(inter.className, "bg-tg-bg-color text-tg-text-color p-2")}
+        className={cn(inter.className, "bg-tg-bg-color p-2 text-tg-text-color")}
       >
         <LoadTGScriptProvider>{children}</LoadTGScriptProvider>
       </body>

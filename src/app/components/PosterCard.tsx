@@ -14,16 +14,16 @@ const PosterCard = () => {
         alt=""
         width={185}
         height={275}
-        className="object-cover w-full h-auto block hover:brightness-50 mb-1"
+        className="mb-1 block h-auto w-full object-cover hover:brightness-50"
         aria-labelledby="poster-caption"
       />
       <figcaption>
         <div className="truncate text-sm" id="poster-caption">
           Reacher: Season foobar foobar
         </div>
-        <div className="text-xs flex justify-between text-tg-hint-color">
+        <div className="flex justify-between text-xs text-tg-hint-color">
           <div>2023</div>{" "}
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <button className="hover:text-tg-text-color">
               <ArrowDownTrayIcon className="size-4" />
             </button>

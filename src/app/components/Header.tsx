@@ -5,7 +5,7 @@ import Search from "./Search";
 const Header: FC = () => {
   return (
     <div className="my-4">
-      <div className="flex gap-2 flex-wrap justify-center mb-4">
+      <div className="mb-4 flex flex-wrap justify-center gap-2">
         {Array.from({ length: 10 }).map((_, i) => (
           //   <button
           //     className="border border-tg-btn-color rounded-full px-2 text-tg-btn-color text-sm"

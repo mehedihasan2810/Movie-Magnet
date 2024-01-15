@@ -9,8 +9,8 @@ export function Button({ children, className, ...rest }: ButtonProps) {
     <button
       {...rest}
       className={cn(
-        "border border-tg-btn-color rounded-md px-2 text-tg-btn-color text-sm hover:bg-tg-btn-color hover:text-tg-btn-text-color",
-        className
+        "rounded-md border border-tg-btn-color px-2 text-sm text-tg-btn-color hover:bg-tg-btn-color hover:text-tg-btn-text-color",
+        className,
       )}
     >
       {children}

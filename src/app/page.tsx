@@ -1,12 +1,14 @@
 import { FC } from "react";
 import Header from "./components/Header";
-import PosterCardWrapper from "./components/PosterCardWrapper";
+import LatestMovies from "./components/LatestMovies";
+import LatestTVSeries from "./components/LatestTVSeries";
 
 const Home: FC = () => {
   return (
     <main>
       <Header />
-      <PosterCardWrapper />
+      <LatestMovies />
+      <LatestTVSeries />
     </main>
   );
 };
