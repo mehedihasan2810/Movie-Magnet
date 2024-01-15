@@ -1,10 +1,14 @@
+import { FC } from "react";
+import Header from "./components/Header";
 import PosterCardWrapper from "./components/PosterCardWrapper";
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <main>
-      <div className="text-center mb-2">Movie Magnet</div>
+      <Header />
       <PosterCardWrapper />
     </main>
   );
-}
+};
+
+export default Home;
