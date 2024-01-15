@@ -1,15 +1,9 @@
 "use client";
 
-import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import Script from "next/script";
-import React, { ReactNode, useEffect, useLayoutEffect } from "react";
+import { ReactNode } from "react";
 
 const LoadTGScriptProvider = ({ children }: { children: ReactNode }) => {
-
-  useIsomorphicLayoutEffect(() => {
-    
-  }, [])
-
   return (
     <>
       {children}
