@@ -1,15 +1,7 @@
-"use client";
-
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import PosterCardWrapper from "./PosterCardWrapper";
+import Link from "next/link";
 
 const LatestMovies = () => {
-  const searchParams = useSearchParams();
-  const { replace } = useRouter();
-  const pathname = usePathname();
-
-  const params = new URLSearchParams(searchParams);
-
   return (
     <section aria-labelledby="lm-title">
       <div className="mb-1 flex items-center justify-between">
@@ -19,20 +11,10 @@ const LatestMovies = () => {
         >
           Latest Movies
         </h2>
-        <button
-          onClick={() => {
-            if (params.get("isMoviesAll") === "true") {
-              params.delete("isMoviesAll");
-            } else {
-              params.set("isMoviesAll", "true");
-            }
 
-            replace(`${pathname}?${params.toString()}`, { scroll: false });
-          }}
-          className="text-tg-btn-color"
-        >
-          {params.get("isMoviesAll") ? "See less" : "See all"}
-        </button>
+        <Link className="text-tg-btn-color" href="/query?q=movies">
+          See all
+        </Link>
       </div>
 
       <PosterCardWrapper />
