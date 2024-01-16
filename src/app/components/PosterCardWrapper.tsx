@@ -1,11 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import PosterCard from "./PosterCard";
 
-const PosterCardWrapper = () => {
+interface Props {
+  movies: any[],
+  searchParams: string;
+}
+
+const PosterCardWrapper: FC<Props> = ({movies, searchParams}) => {
   return (
-    <div className="grid grid-cols-3 gap-2">
-      {Array.from({ length: 10 }).map((_, i) => (
-        <PosterCard key={i} />
+    <div className="grid grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-3">
+      {movies.map((movie) => (
+        <PosterCard key={movie._id} movie={movie} searchParams={searchParams} />
       ))}
     </div>
   );

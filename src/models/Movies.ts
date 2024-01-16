@@ -1,15 +1,16 @@
 import mongoose from "mongoose";
 
 export interface Movies extends mongoose.Document {
-  _id: {
-    $oid: string;
-  };
+  // _id: {
+  //   $oid: string;
+  // };
   plot: string;
   genres: string[];
   runtime: number;
   rated: string;
   cast: string[];
   title: string;
+  poster: string;
   fullplot: string;
   languages: string[];
   released: {
@@ -46,12 +47,12 @@ export interface Movies extends mongoose.Document {
 }
 
 const MovieSchema = new mongoose.Schema<Movies>({
-  _id: {
-    $oid: {
-      type: String,
-      required: true,
-    },
-  },
+  // _id: {
+  //   $oid: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // },
   plot: {
     type: String,
     required: true,
@@ -60,6 +61,7 @@ const MovieSchema = new mongoose.Schema<Movies>({
     {
       type: String,
       required: true,
+      index: true,
     },
   ],
   runtime: {
@@ -77,6 +79,11 @@ const MovieSchema = new mongoose.Schema<Movies>({
     },
   ],
   title: {
+    type: String,
+    required: true,
+    index: true,
+  },
+  poster: {
     type: String,
     required: true,
   },
@@ -155,6 +162,7 @@ const MovieSchema = new mongoose.Schema<Movies>({
   type: {
     type: String,
     required: true,
+    index: true,
   },
   tomatoes: {
     viewer: {

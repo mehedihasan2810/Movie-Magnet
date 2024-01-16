@@ -4,10 +4,18 @@ import Link from "next/link";
 
 const category = [
   { id: 1, name: "All", query: "all" },
-  { id: 2, name: "Movies", query: "movies" },
+  { id: 2, name: "Movies", query: "movie" },
   { id: 3, name: "TV & Web Series", query: "series" },
   { id: 4, name: "Action", query: "action" },
-  { id: 5, name: "Drama", query: "drama" },
+  { id: 5, name: "Thriller", query: "thriller" },
+  { id: 6, name: "Crime", query: "crime" },
+  { id: 7, name: "Fantasy", query: "fantasy" },
+  { id: 8, name: "History", query: "history" },
+  { id: 9, name: "Romance", query: "romance" },
+  { id: 10, name: "Comedy", query: "comedy" },
+  { id: 11, name: "War", query: "war" },
+  { id: 12, name: "Adventure", query: "adventure" },
+  { id: 13, name: "Drama", query: "drama" },
 ];
 
 const Header: FC = () => {

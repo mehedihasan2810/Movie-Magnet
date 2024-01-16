@@ -2,11 +2,20 @@ import { FC } from "react";
 import LatestMovies from "./components/LatestMovies";
 import LatestTVSeries from "./components/LatestTVSeries";
 
-const Home: FC = () => {
+interface Props {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const Home: FC<Props> = ({ searchParams }) => {
+
+  console.log(searchParams)
+
+  const sParams = typeof searchParams.q === "string" ? searchParams.q : "";
+
   return (
     <main>
-      <LatestMovies />
-      <LatestTVSeries />
+      <LatestMovies searchParams={sParams} />
+      <LatestTVSeries searchParams={sParams} />
     </main>
   );
 };

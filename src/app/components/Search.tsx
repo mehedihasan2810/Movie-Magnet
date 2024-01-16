@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
-import { useDebouncedCallback } from "use-debounce";
 import Input from "./Input";
 
 const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
@@ -13,14 +12,14 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
 
   const params = new URLSearchParams(searchParams);
 
-  const handleSearch = useDebouncedCallback((term) => {
+  const handleSearch = (term: string) => {
     if (term) {
       params.set("q", term);
     } else {
       params.delete("q");
     }
     replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  };
 
   return (
     <div className="mx-auto flex w-full max-w-lg items-center gap-1">

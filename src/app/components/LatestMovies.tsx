@@ -1,7 +1,15 @@
 import PosterCardWrapper from "./PosterCardWrapper";
 import Link from "next/link";
+import { getLatestMovieSeries } from "@/lib/data";
+import { FC } from "react";
 
-const LatestMovies = () => {
+interface Props {
+  searchParams: string;
+}
+
+const LatestMovies: FC<Props> = async ({ searchParams }) => {
+  const { data } = await getLatestMovieSeries("movie");
+
   return (
     <section aria-labelledby="lm-title">
       <div className="mb-1 flex items-center justify-between">
@@ -12,12 +20,12 @@ const LatestMovies = () => {
           Latest Movies
         </h2>
 
-        <Link className="text-tg-btn-color" href="/query?q=movies">
+        <Link className="text-tg-btn-color" href="/query?q=movie">
           See all
         </Link>
       </div>
 
-      <PosterCardWrapper />
+      <PosterCardWrapper movies={data} searchParams={searchParams} />
     </section>
   );
 };
