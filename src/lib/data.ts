@@ -3,25 +3,22 @@ import dbConnect from "./dbConnect";
 import Movies from "@/models/Movies";
 
 export const getMoviesSeries = async (
-  searchTerm: string | string[] | undefined,
+  searchTerm: string,
 ): Promise<MovieType> => {
   try {
-    if (searchTerm === undefined)
-      return { success: true, data: [], error: null };
-
     await dbConnect();
 
-    let term = typeof searchTerm === "string" ? searchTerm : searchTerm[0];
-
+    // Query the database for movies and series matching the search term
     const movies = await Movies.find({
       $or: [
-        { title: new RegExp(term, "i") },
-        { genres: new RegExp(term, "i") },
-        { type: new RegExp(term, "i") },
+        { title: new RegExp(searchTerm, "i") },
+        { genres: new RegExp(searchTerm, "i") },
+        { type: new RegExp(searchTerm, "i") },
       ],
-      poster: { $exists: true },
+      poster: { $exists: true }, // Ensure the documents have a poster
     })
       .limit(10)
+      .sort({ released: -1 })
       .select({ title: true, poster: true, released: true });
 
     return { success: true, data: movies, error: null };
@@ -31,24 +28,24 @@ export const getMoviesSeries = async (
   }
 };
 
+// Function to get the latest movies or series based on a type
 export const getLatestMovieSeries = async (
   term: string,
 ): Promise<MovieType> => {
   try {
     await dbConnect();
 
+    // Determine whether to skip the first document based on the type
     const skip = term === "movie" ? 1 : 0;
 
+    // Query the database for the latest movies or series
     const movies = await Movies.find({
-      type: new RegExp(term, "i"),
-      poster: { $exists: true },
-      released: {
-        $gte: new Date("2015-01-01T00:00:00Z"),
-        $lt: new Date("2016-01-01T00:00:00Z"),
-      },
+      type: new RegExp(term, "i"), // Case-insensitive type match
+      poster: { $exists: true }, // Ensure the documents have a poster
     })
+      .skip(skip) // Skip the first document if needed
       .limit(10)
-      .skip(skip)
+      .sort({ released: -1 })
       .select({ title: true, poster: true, released: true });
 
     return { success: true, data: movies, error: null };

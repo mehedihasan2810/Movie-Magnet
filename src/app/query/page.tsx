@@ -5,7 +5,9 @@ import { getMoviesSeries } from "@/lib/data";
 const Query: FC<{
   searchParams: { [key: string]: string | string[] | undefined };
 }> = async ({ searchParams }) => {
-  const { data, error } = await getMoviesSeries(searchParams.q);
+  const sParams = typeof searchParams.q === "string" ? searchParams.q : "";
+
+  const { data, error } = await getMoviesSeries(sParams);
 
   if (error) {
     return <div>Something went wrong! Try again.</div>;
@@ -14,7 +16,7 @@ const Query: FC<{
   return (
     <div>
       <div className="mb-2">{data.length} results found</div>
-      <PosterCardWrapper movies={data} />
+      <PosterCardWrapper movies={data} searchParams={sParams} />
     </div>
   );
 };

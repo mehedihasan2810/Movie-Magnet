@@ -10,14 +10,19 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
   const { replace, push } = useRouter();
   const pathname = usePathname();
 
+  // Create a new URLSearchParams instance to manipulate search parameters
   const params = new URLSearchParams(searchParams);
 
   const handleSearch = (term: string) => {
+    // Update the 'q' query parameter based on the entered search term
     if (term) {
       params.set("q", term);
     } else {
+      // If the search term is empty, remove the 'q' parameter
       params.delete("q");
     }
+
+    // Update the URL with the new search parameters
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -34,6 +39,7 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
           handleSearch(e.target.value);
         }}
         onKeyDown={(e) => {
+          // Navigate to the search results page on pressing 'Enter'
           if (e.key === "Enter") {
             push(`/query?${params.toString()}`);
           }
