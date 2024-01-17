@@ -25,7 +25,7 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
 
     // Update the URL with the new search parameters
     replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 400);
 
   return (
     <div className="mx-auto flex w-full max-w-lg items-center gap-1">
