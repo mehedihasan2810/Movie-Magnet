@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import Input from "./Input";
+import { useDebouncedCallback } from "use-debounce";
 
 const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
   const searchParams = useSearchParams();
@@ -13,7 +14,7 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
   // Create a new URLSearchParams instance to manipulate search parameters
   const params = new URLSearchParams(searchParams);
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useDebouncedCallback((term: string) => {
     // Update the 'q' query parameter based on the entered search term
     if (term) {
       params.set("q", term);
@@ -24,7 +25,7 @@ const Search: FC<{ placeholder: string }> = ({ placeholder }) => {
 
     // Update the URL with the new search parameters
     replace(`${pathname}?${params.toString()}`);
-  };
+  }, 300);
 
   return (
     <div className="mx-auto flex w-full max-w-lg items-center gap-1">
