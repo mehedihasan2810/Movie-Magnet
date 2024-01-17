@@ -20,7 +20,7 @@ const category = [
 
 const Header: FC = () => {
   return (
-    <div className="my-4">
+    <div className="my-4 max-w-5xl mx-auto">
       <div className="mb-4 flex flex-wrap justify-center gap-2">
         <Link
           href="/"

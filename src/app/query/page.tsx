@@ -28,8 +28,8 @@ const Query: FC<{
   });
 
   return (
-    <div>
-      <div className="mb-2">{data.length} results found</div>
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-2">{data.length} results</div>
       <PosterCardWrapper movies={sortedData} searchParams={sParams} />
       <Pagination totalPages={totalPages} />
     </div>

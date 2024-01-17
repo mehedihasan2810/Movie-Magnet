@@ -11,7 +11,7 @@ const LatestMovies: FC<Props> = async ({ searchParams }) => {
   const { data, error } = await fetchLatestMovieSeries("movie");
 
   return (
-    <section aria-labelledby="lm-title">
+    <section aria-labelledby="lm-title" className="max-w-5xl mx-auto">
       <div className="mb-1 flex items-center justify-between">
         <h2
           id="lm-title"
