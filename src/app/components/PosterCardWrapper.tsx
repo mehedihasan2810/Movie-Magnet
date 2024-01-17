@@ -7,6 +7,9 @@ interface Props {
 }
 
 const PosterCardWrapper: FC<Props> = ({movies, searchParams}) => {
+
+  
+
   return (
     <div className="grid grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-3">
       {movies.map((movie) => (

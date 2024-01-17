@@ -1,6 +1,6 @@
 import PosterCardWrapper from "./PosterCardWrapper";
 import Link from "next/link";
-import { getLatestMovieSeries } from "@/lib/data";
+import { fetchLatestMovieSeries } from "@/lib/data";
 import { FC } from "react";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const LatestMovies: FC<Props> = async ({ searchParams }) => {
-  const { data, error } = await getLatestMovieSeries("movie");
+  const { data, error } = await fetchLatestMovieSeries("movie");
 
   return (
     <section aria-labelledby="lm-title">

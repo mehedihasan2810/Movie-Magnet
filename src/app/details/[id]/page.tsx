@@ -1,5 +1,5 @@
 import Button from "@/app/components/Button";
-import { getMovie } from "@/lib/data";
+import { fetchMovie } from "@/lib/data";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const MovieDetails: FC<Props> = async ({ params }) => {
-  const { data, error } = await getMovie(params.id);
+  const { data, error } = await fetchMovie(params.id);
 
   if (error || data === null) {
     return <div>Something went wrong! Try again</div>;

@@ -7,9 +7,6 @@ interface Props {
 }
 
 const Home: FC<Props> = ({ searchParams }) => {
-
-  console.log(searchParams)
-
   const sParams = typeof searchParams.q === "string" ? searchParams.q : "";
 
   return (

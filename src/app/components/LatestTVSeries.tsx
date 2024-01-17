@@ -1,4 +1,4 @@
-import { getLatestMovieSeries } from "@/lib/data";
+import { fetchLatestMovieSeries } from "@/lib/data";
 import PosterCardWrapper from "./PosterCardWrapper";
 import Link from "next/link";
 import { FC } from "react";
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const LatestTVSeries: FC<Props> = async ({ searchParams }) => {
-  const { data, error } = await getLatestMovieSeries("series");
+  const { data, error } = await fetchLatestMovieSeries("series");
   return (
     <section className="mt-6" aria-labelledby="tvs-title">
       <div className="mb-1 flex items-center justify-between">
