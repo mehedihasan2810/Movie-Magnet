@@ -19,7 +19,7 @@ const LatestTVSeries: FC<Props> = async ({ searchParams }) => {
           Latest TV & Web Series
         </h2>
 
-        <Link className="text-tg-btn-color" href="/query?q=series">
+        <Link className="text-tg-btn-color" href="/query?q=series&page=1">
           See all
         </Link>
       </div>

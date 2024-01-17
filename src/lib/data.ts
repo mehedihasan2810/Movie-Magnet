@@ -74,7 +74,7 @@ export const fetchLatestMovieSeries = async (
       poster: { $exists: true }, // Ensure the documents have a poster
     })
       .skip(skip) // Skip the first document if needed
-      .limit(10)
+      .limit(ITEMS_PER_PAGE)
       .sort({ released: -1 })
       .select({ title: true, poster: true, released: true });
 

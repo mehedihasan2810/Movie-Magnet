@@ -5,6 +5,7 @@ import LoadTGScriptProvider from "@/contexts/LoadTGScriptProvider";
 // import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <LoadTGScriptProvider>
           <Header />
           {children}
+          <Footer/>
         </LoadTGScriptProvider>
       </body>
     </html>

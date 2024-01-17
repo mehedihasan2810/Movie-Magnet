@@ -35,7 +35,7 @@ const PosterCard: FC<Props> = ({ movie, searchParams }) => {
           <div title={title} className="mb-1 truncate text-sm">
             {title}
           </div>
-          <div className="flex justify-between text-xs text-tg-hint-color">
+          <div className="flex justify-between text-sm text-tg-hint-color">
             <div>{year}</div>{" "}
             <div className="flex items-center gap-3">
               <button className="hover:text-tg-text-color">

@@ -25,6 +25,7 @@ const MovieDetails: FC<Props> = async ({ params }) => {
 
   return (
     <main className="py-4">
+      <section>
       <figure className="mx-auto grid max-w-3xl grid-cols-2 gap-2">
         <div>
           <Image
@@ -121,6 +122,7 @@ const MovieDetails: FC<Props> = async ({ params }) => {
           </Button>
         </figcaption>
       </figure>
+      </section>
     </main>
   );
 };
