@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface Movies extends mongoose.Document {
+export interface Movie extends mongoose.Document {
   // _id: {
   //   $oid: string;
   // };
@@ -46,7 +46,7 @@ export interface Movies extends mongoose.Document {
   num_mflix_comments: number;
 }
 
-const MovieSchema = new mongoose.Schema<Movies>({
+const MovieSchema = new mongoose.Schema<Movie>({
   // _id: {
   //   $oid: {
   //     type: String,
@@ -197,4 +197,4 @@ const MovieSchema = new mongoose.Schema<Movies>({
 });
 
 export default mongoose.models.Movie ||
-  mongoose.model<Movies>("Movie", MovieSchema);
+  mongoose.model<Movie>("Movie", MovieSchema);

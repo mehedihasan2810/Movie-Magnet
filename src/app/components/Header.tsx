@@ -22,6 +22,12 @@ const Header: FC = () => {
   return (
     <div className="my-4">
       <div className="mb-4 flex flex-wrap justify-center gap-2">
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-tg-btn-color bg-transparent px-2 py-1 text-sm font-medium text-tg-btn-color shadow-none transition-colors hover:bg-tg-btn-color hover:text-tg-btn-text-color focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
+        >
+          Home
+        </Link>
         {category.map((c) => (
           <Link
             href={`/query?q=${c.query}`}

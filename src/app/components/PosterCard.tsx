@@ -1,3 +1,4 @@
+import { Movie } from "@/models/Movies";
 import {
   ArrowDownTrayIcon,
   EyeIcon,
@@ -5,12 +6,17 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 
-const PosterCard = ({ movie, searchParams }: any) => {
+interface Props {
+  movie: Movie;
+  searchParams: string;
+}
+
+const PosterCard: FC<Props> = ({ movie, searchParams }) => {
   const { _id, title, poster, released } = movie;
 
-  const year = new Date(released).getFullYear();
+  const year = new Date(released as unknown as Date).getFullYear();
 
   return (
     <Link

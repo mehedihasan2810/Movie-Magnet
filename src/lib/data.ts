@@ -1,10 +1,10 @@
-import { MovieType } from "@/types";
+import { MovieResponse } from "@/types";
 import dbConnect from "./dbConnect";
-import Movies from "@/models/Movies";
+import Movies, { Movie } from "@/models/Movies";
 
 export const getMoviesSeries = async (
   searchTerm: string,
-): Promise<MovieType> => {
+): Promise<MovieResponse<Movie[]>> => {
   try {
     await dbConnect();
 
@@ -31,7 +31,7 @@ export const getMoviesSeries = async (
 // Function to get the latest movies or series based on a type
 export const getLatestMovieSeries = async (
   term: string,
-): Promise<MovieType> => {
+): Promise<MovieResponse<Movie[]>> => {
   try {
     await dbConnect();
 
@@ -52,5 +52,33 @@ export const getLatestMovieSeries = async (
   } catch (error) {
     console.log((error as Error).message);
     return { success: true, data: [], error: (error as Error).message };
+  }
+};
+
+export const getMovie = async (
+  id: string,
+): Promise<MovieResponse<Movie | null>> => {
+  try {
+    await dbConnect();
+
+    // Query the database for movie or serie matching the id
+    const movie = await Movies.findById(id).select({
+      title: true,
+      poster: true,
+      released: true,
+      cast: true,
+      genres: true,
+      countries: true,
+      directors: true,
+      languages: true,
+      plot: true,
+      imdb: true,
+      runtime: true
+    });
+
+    return { success: true, data: movie, error: null };
+  } catch (error) {
+    console.log((error as Error).message);
+    return { success: true, data: null, error: (error as Error).message };
   }
 };

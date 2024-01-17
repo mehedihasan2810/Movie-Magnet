@@ -8,7 +8,7 @@ interface Props {
 }
 
 const LatestMovies: FC<Props> = async ({ searchParams }) => {
-  const { data } = await getLatestMovieSeries("movie");
+  const { data, error } = await getLatestMovieSeries("movie");
 
   return (
     <section aria-labelledby="lm-title">
@@ -25,7 +25,11 @@ const LatestMovies: FC<Props> = async ({ searchParams }) => {
         </Link>
       </div>
 
-      <PosterCardWrapper movies={data} searchParams={searchParams} />
+      {error ? (
+        <div className="mt-2">Something went wrong! Try again.</div>
+      ) : (
+        <PosterCardWrapper movies={data} searchParams={searchParams} />
+      )}
     </section>
   );
 };

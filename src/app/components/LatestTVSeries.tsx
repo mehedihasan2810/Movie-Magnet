@@ -8,7 +8,7 @@ interface Props {
 }
 
 const LatestTVSeries: FC<Props> = async ({ searchParams }) => {
-  const { data } = await getLatestMovieSeries("series");
+  const { data, error } = await getLatestMovieSeries("series");
   return (
     <section className="mt-6" aria-labelledby="tvs-title">
       <div className="mb-1 flex items-center justify-between">
@@ -24,7 +24,11 @@ const LatestTVSeries: FC<Props> = async ({ searchParams }) => {
         </Link>
       </div>
 
-      <PosterCardWrapper movies={data} searchParams={searchParams} />
+      {error ? (
+        <div className="mt-2">Something went wrong! Try again.</div>
+      ) : (
+        <PosterCardWrapper movies={data} searchParams={searchParams} />
+      )}
     </section>
   );
 };

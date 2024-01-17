@@ -1,5 +1,5 @@
-export interface MovieType {
+export interface MovieResponse<T> {
   success: boolean;
-  data: any[];
+  data: T;
   error: string | null;
 }
