@@ -30,7 +30,7 @@ const Query: FC<{
   return (
     <main className="max-w-5xl mx-auto">
       <section>
-      <div className="mb-2">{data.length} results</div>
+      <div className="mb-2 font-medium">{data.length} results</div>
       <PosterCardWrapper movies={sortedData} searchParams={sParams} />
       <Pagination totalPages={totalPages} />
       </section>

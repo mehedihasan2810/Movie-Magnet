@@ -12,7 +12,7 @@ const LatestMovies: FC<Props> = async ({ searchParams }) => {
 
   return (
     <section aria-labelledby="lm-title" className="max-w-5xl mx-auto">
-      <div className="mb-1 flex items-center justify-between">
+      <div className="mb-2 flex items-center justify-between">
         <h2
           id="lm-title"
           className="border-l-4 border-l-tg-btn-color pl-1 text-xl font-semibold"

@@ -10,8 +10,8 @@ interface Props {
 const LatestTVSeries: FC<Props> = async ({ searchParams }) => {
   const { data, error } = await fetchLatestMovieSeries("series");
   return (
-    <section className="mt-6 max-w-5xl mx-auto" aria-labelledby="tvs-title">
-      <div className="mb-1 flex items-center justify-between">
+    <section className="mt-8 max-w-5xl mx-auto" aria-labelledby="tvs-title">
+      <div className="mb-2 flex items-center justify-between">
         <h2
           id="tvs-title"
           className="border-l-4 border-l-tg-btn-color pl-1 text-xl font-semibold"

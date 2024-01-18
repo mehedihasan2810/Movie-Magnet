@@ -21,7 +21,7 @@ const category = [
 
 const Header: FC = () => {
   return (
-    <header className="mx-auto max-w-3xl">
+    <header className="mx-auto max-w-3xl mb-4">
       <Navbar />
       <div className="mb-4 flex flex-wrap justify-center gap-2">
         {category.map((c) => (
