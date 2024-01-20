@@ -32,11 +32,13 @@ const DownloadButton: FC<{ className: string }> = ({ className }) => {
                 onSuccess: (newData) => {
                   if (newData.data.error) {
                     webApp.showAlert(newData.data.error);
+                  } else {
+                    webApp.close();
                   }
                 },
               },
             );
-            webApp.sendData("test sendData webApp method");
+            // webApp.sendData("test sendData webApp method");
           } else {
             setError(
               "This feature is under development right now. Sorry for the inconvenience.",

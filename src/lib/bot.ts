@@ -130,7 +130,7 @@ export default class Bot {
           inline_keyboard: [
             [
               {
-                text: `🦄 Open MovieMagnex`,
+                text: `Open MovieMagnex`,
                 web_app: {
                   url: this.config.webAppUrl,
                 },
