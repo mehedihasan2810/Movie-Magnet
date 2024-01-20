@@ -32,7 +32,7 @@ const PosterCard: FC<Props> = ({ movie, searchParams }) => {
           className="mb-1 block h-auto w-full object-cover hover:brightness-75"
         />
         <figcaption>
-          <div title={title} className="mb-1 truncate text-sm">
+          <div title={title} className="mb-1 truncate">
             {title}
           </div>
           <div className="flex justify-between text-sm text-tg-hint-color">

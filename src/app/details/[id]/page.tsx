@@ -1,7 +1,7 @@
-import Button from "@/app/components/Button";
 import { fetchMovie } from "@/lib/data";
 import Image from "next/image";
 import { FC } from "react";
+import DownloadButton from "./ui/DownloadButton";
 
 interface Props {
   params: { id: string };
@@ -35,9 +35,18 @@ const MovieDetails: FC<Props> = async ({ params }) => {
               height={275}
               className="block h-auto w-full object-cover"
             />
-            <Button className="mt-2 w-full border text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:hidden">
+            <Image
+              src={data.poster}
+              alt={data.title}
+              width={185}
+              height={275}
+              className="mt-2 block h-auto w-full object-cover sm:hidden"
+            />
+            {/* <Button className="mt-2 w-full border border-tg-btn-color text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:hidden">
               Download
-            </Button>
+            </Button> */}
+
+            <DownloadButton className="mt-2 sm:hidden" />
           </div>
 
           <figcaption className="space-y-2">
@@ -119,9 +128,10 @@ const MovieDetails: FC<Props> = async ({ params }) => {
               </div>
             </div>
 
-            <Button className="hidden w-full border text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:block">
+            {/* <Button className="hidden w-full border text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:block">
               Download
-            </Button>
+            </Button> */}
+            <DownloadButton className="hidden sm:block" />
           </figcaption>
         </figure>
       </section>

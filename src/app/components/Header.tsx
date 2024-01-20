@@ -23,6 +23,11 @@ const Header: FC = () => {
   return (
     <header className="mx-auto max-w-3xl mb-4">
       <Navbar />
+
+        {/* todo */}
+        <div id="init-data"></div>
+
+
       <div className="mb-4 flex flex-wrap justify-center gap-2">
         {category.map((c) => (
           <Link

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import LoadTGScriptProvider from "@/contexts/LoadTGScriptProvider";
-// import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ReactQueryClientProvider from "@/contexts/ReactQueryClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +19,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={`${inter.className} bg-tg-bg-color p-2 text-tg-text-color`}
-        // className={cn(inter.className, "bg-tg-bg-color p-2 text-tg-text-color")}
       >
-        <LoadTGScriptProvider>
-          <Header />
-          {children}
-          <Footer/>
-        </LoadTGScriptProvider>
+        <ReactQueryClientProvider>
+          <LoadTGScriptProvider>
+            <Header />
+            {children}
+            <Footer />
+          </LoadTGScriptProvider>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
