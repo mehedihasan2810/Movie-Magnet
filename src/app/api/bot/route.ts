@@ -6,8 +6,6 @@ export const POST = async (req: Request) => {
   try {
     const data = await req.json();
 
-    console.log(data);
-
     bot.processIncomingMsg(data);
 
     return Response.json({ data: "ok", error: null });

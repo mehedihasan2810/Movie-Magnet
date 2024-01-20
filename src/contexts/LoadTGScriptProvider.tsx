@@ -1,9 +1,9 @@
 "use client";
 
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { TGWebApp } from "@/lib/tg-webapp";
-import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+// import { TGWebApp } from "@/lib/tg-webapp";
+// import { useMutation } from "@tanstack/react-query";
+// import axios from "axios";
 import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
 import { ReactNode } from "react";
@@ -12,14 +12,14 @@ const LoadTGScriptProvider = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const mutation = useMutation({
-    mutationFn: async (data: any) => {
-      return axios.post("/api/validate-hash", data);
-    },
-    onSuccess: (newData) => {
-      console.log(newData);
-    },
-  });
+  // const mutation = useMutation({
+  //   mutationFn: async (data: any) => {
+  //     return axios.post("/api/validate-hash", data);
+  //   },
+  //   onSuccess: (newData) => {
+  //     console.log(newData);
+  //   },
+  // });
 
   useIsomorphicLayoutEffect(() => {
     const backButton = window.Telegram.WebApp.BackButton;
@@ -57,19 +57,19 @@ const LoadTGScriptProvider = ({ children }: { children: ReactNode }) => {
   //   };
   // }, []);
 
-  useIsomorphicLayoutEffect(() => {
-    const webApp = new TGWebApp();
+  // useIsomorphicLayoutEffect(() => {
+  //   const webApp = new TGWebApp();
 
-    if (webApp.initData !== "") {
-      mutation.mutate({ initData: webApp.initData });
-    }
-  }, []);
+  //   if (webApp.initData !== "") {
+  //     mutation.mutate({ initData: webApp.initData });
+  //   }
+  // }, []);
 
-  useIsomorphicLayoutEffect(() => {
-    document.getElementById("init-data")!.innerHTML = mutation.data?.data
-      ? JSON.stringify(mutation.data?.data, null, 2)
-      : "No initData";
-  }, [mutation.data]);
+  // useIsomorphicLayoutEffect(() => {
+  //   document.getElementById("init-data")!.innerHTML = mutation.data?.data
+  //     ? JSON.stringify(mutation.data?.data, null, 2)
+  //     : "No initData";
+  // }, [mutation.data]);
 
   return (
     <>

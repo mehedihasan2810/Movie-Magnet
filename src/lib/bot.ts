@@ -93,6 +93,29 @@ export default class Bot {
     );
   }
 
+  public async replyDownloadMessage({
+    chatId,
+    message,
+  }: {
+    chatId: number;
+    message: string;
+  }): Promise<void> {
+    await this.bot!.sendMessage(chatId, message, {
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "Open MovieMagnex",
+              web_app: {
+                url: this.config.webAppUrl,
+              },
+            },
+          ],
+        ],
+      },
+    });
+  }
+
   /**
    * Send message with inline query containing a link to the mini-app
    *

@@ -42,9 +42,7 @@ const MovieDetails: FC<Props> = async ({ params }) => {
               height={275}
               className="mt-2 block h-auto w-full object-cover sm:hidden"
             />
-            {/* <Button className="mt-2 w-full border border-tg-btn-color text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:hidden">
-              Download
-            </Button> */}
+           
 
             <DownloadButton className="mt-2 sm:hidden" />
           </div>
@@ -128,9 +126,7 @@ const MovieDetails: FC<Props> = async ({ params }) => {
               </div>
             </div>
 
-            {/* <Button className="hidden w-full border text-sm shadow-none hover:border-tg-btn-color hover:bg-transparent hover:text-tg-btn-color sm:block">
-              Download
-            </Button> */}
+           
             <DownloadButton className="hidden sm:block" />
           </figcaption>
         </figure>
